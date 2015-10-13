@@ -28,35 +28,6 @@ $env = $app->detectEnvironment(array(
     'local' => array('homestead', 'MAMERisawesome', 'Kristine', 'Leensey-Laptop', 'Gello', 'Rizal'),
 ));
 
-//Dotenv::load(__DIR__.'/../');
-
-/*$env = $app->detectEnvironment(array(
-    function() use($app) {
-        return getenv('APP_ENV') ?: ($app->runningInConsole() ? 'local' : 'production');
-    }
-));*/
-
-/*
-    Error is expected since
-    function(array(function()
-        {
-            statements here.
-        }
-    ));
-    is not defined
-*/
-
-//$env = $app->detectEnvironment(
-//    function()
-//    {
-//        if(getenv('APP_ENV') !== null)
-//        {
-//            Dotenv::load(__DIR__ .'/../');
-//        }
-//        return getenv('APP_ENV');
-//    }
-//);
-
 /*
 |--------------------------------------------------------------------------
 | Bind Paths

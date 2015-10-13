@@ -9,3 +9,7 @@ body {
 main {
 	flex: 1 0 auto;
 }
+
+.no_see {
+	background-color: rgba(0,0,0,0);
+}

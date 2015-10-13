@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'icswebsite',
+			'database'  => 'randomdb',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
@@ -64,14 +64,15 @@ return array(
 		),
 
 		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'onlinestore',
-			'username' => 'forge',
-			'password' => '',
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
+			'driver'   	=> 'pgsql',
+			'host'     	=> 'localhost',
+			'database' 	=> 'leftystore',
+			//'port'		=> '5432',
+			'username' 	=> 'postgres',
+			'password' 	=> 'root',
+			'charset'  	=> 'utf8',
+			'prefix'   	=> '',
+			'schema'   	=> 'public',
 		),
 
 		'sqlsrv' => array(
@@ -114,8 +115,8 @@ return array(
 		'cluster' => false,
 
 		'default' => array(
-			'host'     => '127.0.0.1',
-			'port'     => 6379,
+			'host'     => 'localhost',
+			'port'     => 5432,
 			'database' => 0,
 		),
 

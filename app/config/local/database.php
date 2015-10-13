@@ -20,27 +20,28 @@ return array(
 
 	'connections' => array(
 
-		'mysql' => array(
+		/*'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'icswebsite',
+			'database'  => 'randomdb',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+		),*/
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'homestead',
-			'username' => 'homestead',
-			'password' => 'secret',
+			//'port' 	   => '5432',
+			'database' => 'leftystore',
+			'username' => 'postgres',
+			'password' => 'root',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
-		),
+		)/*,*/
 
 	),
 

@@ -14,5 +14,8 @@
 
 //Route::get('/test', array('uses' => 'TestController@show', 'as' => 'pages.test'));
 Route::get('/', array('uses' => 'HomeController@showWelcome', 'as' => 'index'));
-Route::post('/', array('uses'=> 'HomeController@showWelcome', 'as' => 'index'));
-Route::get('/pages',array('uses' => 'GeneralController@showHome', 'as' => 'page/library'));
+Route::get('/home', array('uses' => 'HomeController@showHomepage', 'as' => 'home'));
+//Route::post('/', array('uses'=> 'HomeController@showWelcome', 'as' => 'index'));
+
+Route::post('/login', array('uses'=> 'LoginController@login', 'as' => 'login'));
+//Route::post('/login', array('uses'=> 'GeneralController@login', 'as' => 'login'));

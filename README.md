@@ -1,3 +1,3 @@
-## Institute of Computer Science Website Rework based somewhere.
+## This is a site
 
-Developed by six people. HELLO!
+Developed by three people. HELLO!
