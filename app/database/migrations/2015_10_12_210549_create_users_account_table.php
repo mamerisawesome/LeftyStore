@@ -14,7 +14,8 @@ class CreateUsersAccountTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table)
 		{
-			$table->string('bank_acct_no', 20)->primary();
+			$table->increments('id');
+			$table->string('bank_acct_no', 20)->unique();
 			$table->string('username', 60)->unique();
             $table->string('password', 60);
 			$table->string('first_name', 30);

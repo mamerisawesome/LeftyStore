@@ -26,25 +26,16 @@ class UserTableSeeder extends Seeder{
 
         User::create(
             [
-                'username'	=>'almer',
-                'password'	=>Hash::make('123')
+                'bank_acct_no'		=> '1234567890',
+				'username'			=> 'almer',
+                'password'			=> Hash::make('123'),
+                'first_name'		=> 'Almer',
+                'middle_name'		=> 'Taculog',
+                'last_name'			=> 'Mendoza',
+                'address'			=> '6 CM Borja Street Barangay Sta. Ana, Pateros Metro Manila',
+				'approved_by'		=> 'almer'
             ]
         );
-		
-		User::create(
-            [
-                'username'	=>'sergio',
-                'password'	=>Hash::make('123')
-            ]
-        );
-		
-		User::create(
-            [
-                'username'	=>'janabels',
-                'password'	=>Hash::make('123')
-            ]
-        );
-		
 
     }
 
