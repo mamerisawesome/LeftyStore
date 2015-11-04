@@ -1,5 +1,10 @@
 @extends('layouts.default')
 
+@section('pageTitle')
+	<title>List of users</title>
+
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-12" id="reg-form-title">
@@ -7,11 +12,20 @@
         </div>
 
         <div class="col-md-12" id="reg-form-body">
-        <ol>
+        <table class = "centered bordered">
+			<thead>
+					<tr>
+						<th data-field="id">Username</th>
+						<th data-field="name">Address</th>
+					</tr>
+        		</thead>
         @foreach($users as $user)
-               <li>{{ $user->username, " ", $user->password }}</li>
-        @endforeach
-        </ol>
+			<tr>
+				<td>{{ $user->username }}</td>
+				<td>{{ $user->address }}</td>
+			</tr>
+		@endforeach
+        </table>
         </div>
     </div>
 @stop

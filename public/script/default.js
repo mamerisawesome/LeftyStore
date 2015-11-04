@@ -38,52 +38,13 @@ $(document).ready(function(){
 
 	$("#group-panel").click(function(){
 		$("#group-field").slideToggle("slow");
-//		groupStatus = true;
 	});
-/*
-	$(window).resize(function(){
-		if($(window).width() < 975){
-			$(".profile-icon").hide();
-			$(".group-icon").hide();
-		}
-		else{
-			$(".profile-icon").show();
-			$(".group-icon").show();
-		}	
-	});
-*/
-	/*$(".user-group").click(function(){
-		 //If kaya ng by whole na i-load
-		$("#group-feed").load("/script/sample.html")
-
-		//$("#welcome-note").load("/script/sample.html")
-		$('#welcome-note').html('<h2>This is something here.</h2>');
-		//$(".feed-text").load("/script/sample2.txt")
-	    $('.feed-text').html('This is some text that I just typed right now!');
-    });
-
-	$("#inbox-panel").click(function(){
-		 //If kaya ng by whole na i-load
-		$("#group-feed").load("/script/sample2.html")
-
-		$("#welcome-note").load("/script/sample2.html")
-		$(".feed-text").load("/script/sample.txt")
-	});	*/
 	
 	$("#valid").click(function(){
 		$("#dimmer").fadeToggle("fast");
 		$("#pop-up").toggle("slow");
 	});
 
-/*
-	$("#firstName").val("Angelo");
-	$("#middleName").val("Capa");
-	$("#lastName").val("Guiam");
-	$("#email").val("asdfg@gmail.com");
-	$("#username").val("asdfg@gmail.com");
-	$("#password").val("asdfg@gmail.com");
-	$("#retypePassword").val("asdfg@gmail.com");
-	$("#studentNumber").val("2013-09868");
-*/
+    $('select').material_select();
 
 });

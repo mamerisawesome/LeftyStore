@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration {
 			$table->string('item_name', 60);
 			$table->float('price');
 			$table->string('category', 60);
+			$table->string('avatar', 200);
 			
 			$table->string('posted_by')->unsigned();			
 			$table->foreign('posted_by')

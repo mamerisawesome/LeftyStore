@@ -1,14 +1,19 @@
 @extends('layouts.default')
+
+@section('pageTitle')
+	<title>Online Sari Sari</title>
+
+@stop
+
 @section('content')
 
 	<div class="parallax-container">
 		<div class="parallax"><img src="res/laptop.jpg"></div>
 	</div>
 
+	
 	<div class="container">
-		<div class="row">
-			<h2>An Online Store To Serve Everyone</h2>
-		</div>
+		<h2>An Online Store To Serve Everyone</h2>
 
 		<div class="row">
 			<div class="col s3">
@@ -33,48 +38,56 @@
 			</div>
 		</div>
 
-		<div class="row center-align">
-			<div class="col s6">
-				<h4>Log in</h4>
-				<form method="get" action="/home">
-					<!--<div class="input-field">
-						<input type="text" id="username" name="username"/>
-						<label for="username">Username</label>
+		<div class="row">
+			<div class="col l6 m6 s12">
+				<div class="card">
+					<div class="card-content">
+						<h4>Create user </h4>
+						<p>Click me</p>
 					</div>
-
-					<div class="input-field">
-						<input type="password" id="password" name="password"/>
-						<label for="password">Password</label>
-					</div>-->
-
-					<button class="btn green" type="submit">Log In</button>
-				</form>
+					<div class="card-action">
+						<a class="btn waves-effect white-text waves-light green" href="/signupPage">Sign Up</a>
+					</div>
+				</div>
 			</div>
 
-			<div class="col s6">
-				<h4>No account yet? </h4>
-				<form method="post" action="/register">
-					<div class="input-field">
-						<input type="text" id="username" name="username"/>
-						<label for="username">Username</label>
+			<div class="col l6 m6 s12">
+				<div class="card">
+					<div class="card-content">
+						<h4>Post item</h4>
+						<p>Click me</p>
 					</div>
-
-					<div class="input-field">
-						<input type="password" id="password" name="password"/>
-						<label for="password">Password</label>
+					<div class="card-action">
+						<a class="btn waves-effect white-text waves-light green" href="/item/create">Post</a>
 					</div>
-
-					<div class="input-field">
-						<input type="password" id="retypePassword" name="retypePassword"/>
-						<label for="retypePassword">Retype Password</label>
+				</div>
+			</div>
+			
+			<div class="col l6 m6 s12">
+				<div class="card">
+					<div class="card-content">
+						<h4>View all users</h4>
+						<p>Click me</p>
 					</div>
-
-					<button class="btn green" type="submit">Sign Up</button>
-				</form>
+					<div class="card-action">
+						<a class="btn waves-effect white-text waves-light green" href="/home">View</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col l6 m6 s12">
+				<div class="card">
+					<div class="card-content">
+						<h4>View all items </h4>
+						<p>Click me</p>
+					</div>
+					<div class="card-action">
+						<a class="btn waves-effect white-text waves-light green" href="/item">View</a>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
+		
 	<script>
 		$(document).ready(function(){
 		  $('.parallax').parallax();

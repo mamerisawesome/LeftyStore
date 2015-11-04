@@ -67,7 +67,6 @@ return array(
 			'driver'   	=> 'pgsql',
 			'host'     	=> 'localhost',
 			'database' 	=> 'leftystore',
-			//'port'		=> '5432',
 			'username' 	=> 'postgres',
 			'password' 	=> 'root',
 			'charset'  	=> 'utf8',
