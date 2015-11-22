@@ -86,7 +86,7 @@ class UserController extends \BaseController {
 		if(sizeof($userRes)){
 			$itemRes = DB::select("select * from items where posted_by like '".$userName."'");
 			return View::make('pages.user.profile')->with(array('items'=>$itemRes,'user'=>$userRes[0]));
-		} else {
+		} else if($userName != 'login' && $userName != 'signup' && sizeof($userRes) == 0) {
 			return Redirect::to('/');
 		}
 	}

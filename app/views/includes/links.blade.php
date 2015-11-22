@@ -1,4 +1,4 @@
-@if(Session::get('isLogged') == true)
+@if(Session::has('isLogged'))
 	<li><a href="/user/{{Session::get('username')}}">{{Session::get('username')}}</a></li>
 	<li><a href="/item">View Items</a></li>
 	<li><a href="/user/logout">Logout</a></li>

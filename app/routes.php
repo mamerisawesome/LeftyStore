@@ -20,9 +20,6 @@ Route::group(array('prefix'=>''),function(){
 
 // user routes
 Route::group(array('prefix'=> 'user'), function(){
-	Route::get('/', array('uses'=> 'UserController@index', 'as' => 'user'));
-	Route::get('/{userName}', array('uses' => 'UserController@show', 'as' => 'user.find'));
-	
 	Route::get('/signup', array('uses' => 'UserController@signupPage', 'as' => 'signup'));
 	Route::post('/signup', array('uses'=> 'UserController@create', 'as' => 'user.create'));
 	
@@ -30,6 +27,9 @@ Route::group(array('prefix'=> 'user'), function(){
 	Route::post('/login', array('uses'=> 'SessionController@start', 'as' => 'login'));
 	
 	Route::get('/logout', array('uses'=> 'SessionController@destroy', 'as' => 'logout'));
+	
+	Route::get('/', array('uses'=> 'UserController@index', 'as' => 'user'));
+	Route::get('/{userName}', array('uses' => 'UserController@show', 'as' => 'user.find'));
 });
 
 // item routes

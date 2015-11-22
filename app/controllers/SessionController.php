@@ -2,13 +2,6 @@
 
 class SessionController extends \BaseController {
 	
-	protected $user;
-
-    public function __construct(User $user)
-	{
-        $this->user = $user;
-    }
-	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -40,7 +33,7 @@ class SessionController extends \BaseController {
 			Session::put('address',Auth::user()->address);
 			Session::put('isLogged',true);
 			
-			return Redirect::to('/');
+			return Redirect::intended('/');
 		}else{
 			return Redirect::back();
 		}
