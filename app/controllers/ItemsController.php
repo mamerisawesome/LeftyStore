@@ -80,7 +80,6 @@ class ItemsController extends \BaseController {
 	public function show($itemName)
 	{
 		$itemRes = DB::select("select * from items where item_name like '".$itemName."'");
-//		dd($itemRes);
 		return View::make('pages.item.itemFind')->with('item',$itemRes[0]);
 	}
 

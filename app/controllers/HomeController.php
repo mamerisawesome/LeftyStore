@@ -14,26 +14,12 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	protected $user;
-
-    public function __construct(User $user)
-	{
-        $this->user = $user;
-    }
 	
-	public function showWelcome()
-	{
-		return View::make('pages.home');
+	public function showWelcome(){
+		return View::make('index');
 	}
-
-	public function showHomepage(){
-		$users = DB::select('select * from users');
-//		if(DB::table('users')->count() = 0){
-//			$users->username = "mamerisawesome";
-//			$users->password = "123";
-//		}
-//		dd($users);
-		return View::make('pages.user.index')->with('users',$users);
+	
+	public function showLanding(){
+		return View::make('pages.home');
 	}
 }

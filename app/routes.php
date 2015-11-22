@@ -12,21 +12,35 @@
 |
 */
 
-//Route::get('/test', array('uses' => 'TestController@show', 'as' => 'pages.test'));
-Route::get('/', array('uses' => 'HomeController@showWelcome', 'as' => 'index'));
-Route::get('/home', array('uses' => 'HomeController@showWelcome', 'as' => 'home'));
-//Route::post('/', array('uses'=> 'HomeController@showWelcome', 'as' => 'index'));
+// home routes
+Route::group(array('prefix'=>''),function(){
+	Route::get('/', array('uses' => 'HomeController@showLanding', 'as' => 'index'));
+	Route::get('/landing', array('uses' => 'HomeController@showLanding', 'as' => 'home'));
+});
 
-Route::get('/signupPage', array('uses' => 'LoginController@signupPage', 'as' => 'signupPage'));
+// user routes
+Route::group(array('prefix'=> 'user'), function(){
+	Route::get('/', array('uses'=> 'UserController@index', 'as' => 'user'));
+	Route::get('/{userName}', array('uses' => 'UserController@show', 'as' => 'user.find'));
+	
+	Route::get('/signup', array('uses' => 'UserController@signupPage', 'as' => 'signup'));
+	Route::post('/signup', array('uses'=> 'UserController@create', 'as' => 'user.create'));
+	
+	Route::get('/login', array('uses'=> 'SessionController@index', 'as' => 'page.login'));
+	Route::post('/login', array('uses'=> 'SessionController@start', 'as' => 'login'));
+	
+	Route::get('/logout', array('uses'=> 'SessionController@destroy', 'as' => 'logout'));
+});
 
-Route::post('/signup', array('uses'=> 'LoginController@create', 'as' => 'signup'));
-//Route::post('/login', array('uses'=> 'GeneralController@login', 'as' => 'login'));
+// item routes
+Route::group(array('prefix'=> 'item'), function(){
+	Route::get('/create', array('uses' => 'ItemsController@createItem', 'as' => 'item.create'));
+	Route::post('/create', array('uses'=> 'ItemsController@create', 'as' => 'item.create'));
 
-Route::get('/item/create', array('uses' => 'ItemsController@createItem', 'as' => 'item.create'));
-Route::get('/item/index', array('uses' => 'ItemsController@showItems', 'as' => 'itemIndex'));
-Route::get('/item', array('uses' => 'ItemsController@showItems', 'as' => 'itemIndex'));
-Route::get('/item/{itemName}', array('uses' => 'ItemsController@show', 'as' => 'itemFind'));
+	Route::get('', array('uses' => 'ItemsController@showItems', 'as' => 'itemIndex'));
+	Route::get('/list', array('uses' => 'ItemsController@showItems', 'as' => 'itemIndex'));
+	Route::get('/{itemName}', array('uses' => 'ItemsController@show', 'as' => 'item.find'));
 
-Route::post('/item/create', array('uses'=> 'ItemsController@create', 'as' => 'createItem'));
-Route::post('/item/search', array('uses'=> 'ItemsController@search', 'as' => 'searchItem'));
-Route::post('/item/delete/{itemName}', array('uses'=> 'ItemsController@destroy', 'as' => 'deleteItem'));
+	Route::post('/search', array('uses'=> 'ItemsController@search', 'as' => 'item.search'));
+	Route::post('/delete/{itemName}', array('uses'=> 'ItemsController@destroy', 'as' => 'item.delete'));
+});

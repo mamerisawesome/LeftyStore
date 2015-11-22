@@ -22,9 +22,4 @@ class GeneralController extends BaseController{
     {
         return View::make($somePage);
     }
-
-    public function login(){
-        
-    }
-
 }

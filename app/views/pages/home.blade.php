@@ -46,7 +46,7 @@
 						<p>Click me</p>
 					</div>
 					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/signupPage">Sign Up</a>
+						<a class="btn waves-effect white-text waves-light green" href="/user/signup">Sign Up</a>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 						<p>Click me</p>
 					</div>
 					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/home">View</a>
+						<a class="btn waves-effect white-text waves-light green" href="/user">View</a>
 					</div>
 				</div>
 			</div>

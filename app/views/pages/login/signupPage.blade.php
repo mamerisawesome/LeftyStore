@@ -10,48 +10,55 @@
 		
 		<h1>Create a new account</h1>
 		
-		<form method="post" action="/signup">
-			<div class="input-field">
-				<input type="text" name="first_name" id="first_name">
-				<label for="first_name">First Name</label>
+		{{ Form::open(array('url'=>'/user/signup', 'files'=> true)) }}
+			{{
+				Form::macro('inputRow', function($inputType, $id, $placeholder, $rowSize){
+					echo '<div class="col '.$rowSize.' input-field">';
+					echo Form::input($inputType, $id, '' , array('id'=>$id));
+					echo Form::label($id, $placeholder, array('for'=>$id));
+					echo '</div>';
+				})
+			}}
+		
+			<div class="row">
+				{{ Form::inputRow('text', 'first_name','First Name','s4') }}
+				{{ Form::inputRow('text', 'middle_name','Middle Name','s4') }}
+				{{ Form::inputRow('text', 'last_name','Last Name','s4') }}
+			</div>
+
+			<div class="row">
+				{{ Form::inputRow('text', 'bank_acct_no','Bank Account No','s12') }}
+			</div>
+
+			<div class="row">
+				{{ Form::inputRow('text', 'username','Username','s12') }}
+			</div>
+
+			<div class="row">
+				{{ Form::inputRow('password', 'password','Password','s6') }}
+				{{ Form::inputRow('password', 'retype_password','Retype Password','s6') }}
+			</div>
+
+			<div class="row">
+				{{ Form::inputRow('text', 'address','Address','s12') }}
 			</div>
 			
-			<div class="input-field">
-				<input type="text" name="middle_name" id="middle_name">
-				<label for="middle_name">Middle Name</label>
+			<div class="row">
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>File</span>
+						{{ Form::file('avatar') }}
+					</div>
+					<div class="file-path-wrapper">
+						{{ Form::text('avatarPath','',array('class'=>'file-path')) }}
+					</div>
+				</div>
 			</div>
 			
-			<div class="input-field">
-				<input type="text" name="last_name" id="last_name">
-				<label for="last_name">Last Name</label>
+			<div class="row">
+				<button type="submit" class="btn waves-effect waves-light green">Submit</button>
 			</div>
-
-			<div class="input-field">
-				<input type="text" name="bank_acct_no" id="bank_acct_no">
-				<label for="bank_acct_no">Bank Account No</label>
-			</div>
-
-			<div class="input-field">
-				<input type="text" name="username" id="username">
-				<label for="username">Username</label>
-			</div>
-
-			<div class="input-field">
-				<input type="password" name="password" id="password">
-				<label for="password">Password</label>
-			</div>
-
-			<div class="input-field">
-				<input type="password" name="retype_password" id="retype_password">
-				<label for="retype_password">Retype Password</label>
-			</div>
-
-			<div class="input-field">
-				<input type="text" name="address" id="address">
-				<label for="address">Address</label>
-			</div>
-			
-			<button type="submit" class="btn waves-effect waves-light green">Submit</button>
-		</form>
+		{{ Form::close() }}
+		
 	</div>
 @stop
