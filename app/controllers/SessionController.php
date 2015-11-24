@@ -11,6 +11,16 @@ class SessionController extends \BaseController {
         return View::make('pages.login.loginPage');
 	}
 
+	public function search(){
+		$req = Input::get('itemSearch');
+		$itemRes = DB::select("select * from items where lower(item_name) like '%".strtolower($req)."%'");
+		$userRes = DB::select("select * from users "
+							  ."where lower(username) like '%".strtolower($req)."%' "
+							 );
+	
+		return View::make('pages.searchResult')
+			->with(array('items'=>$itemRes,'users'=>$userRes));
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -32,6 +42,10 @@ class SessionController extends \BaseController {
 			Session::put('lastName',Auth::user()->lastName);
 			Session::put('address',Auth::user()->address);
 			Session::put('isLogged',true);
+			$isAdmin = DB::select("select administrators.admin_username from administrators where administrators.admin_username = '".Session::get('username') ."'");
+			if(sizeof($isAdmin) != 0){
+				Session::put('isAdmin',true);
+			}
 			
 			return Redirect::intended('/');
 		}else{

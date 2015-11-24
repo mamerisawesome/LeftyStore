@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemsTable extends Migration {
+class CreateForItemApproval extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateItemsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('items', function(Blueprint $table)
+		Schema::create('for_item_approval', function(Blueprint $table)
 		{
 			$table->increments('item_no');
 			$table->string('item_name', 60);
@@ -24,13 +24,6 @@ class CreateItemsTable extends Migration {
 			$table->foreign('posted_by')
 				  ->references('username')->on('users')
 				  ->onDelete('cascade');
-			
-			$table->integer('approved_by')->nullable()->unsigned();						
-			$table->foreign('approved_by')
-				  ->references('admin_id')->on('administrators')
-				  ->onDelete('cascade');
-			
-			$table->integer('views')->unsigned();
 		});
 	}
 
@@ -41,7 +34,7 @@ class CreateItemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('items');
+		Schema::drop('for_item_approval');
 	}
 
 }

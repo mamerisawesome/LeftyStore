@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfilesTable extends Migration {
+class ForApprovalProfileTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,38 +12,26 @@ class CreateProfilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('profiles', function(Blueprint $table)
+		Schema::create('for_approval_profile', function(Blueprint $table)
 		{
 			$table->increments('profile_id', 20);
 			
 			$table->string('profile_username')->unsigned();
 			$table->foreign('profile_username')
-				  ->references('username')->on('users')
+				  ->references('username')->on('for_approval')
 				  ->onDelete('cascade');
 			
 			$table->date('birthday');
 			$table->integer('age');
 		});
 		
-		Schema::create('profile_other_accts', function(Blueprint $table)
-		{
-			$table->increments('profile_other_accts_id', 20);
-			
-			$table->integer('profile_id')->unsigned();			
-			$table->foreign('profile_id')
-				  ->references('profile_id')->on('profiles')
-				  ->onDelete('cascade');
-			
-			$table->string('account', 60);
-		});
-		
-		Schema::create('profile_interests', function(Blueprint $table)
+		Schema::create('for_approval_profile_interest', function(Blueprint $table)
 		{
 			$table->increments('profile_interests_id', 20);
 			
 			$table->integer('profile_id')->unsigned();			
 			$table->foreign('profile_id')
-				  ->references('profile_id')->on('profiles')
+				  ->references('profile_id')->on('for_approval_profile')
 				  ->onDelete('cascade');
 			
 			$table->string('interest', 60);
@@ -57,9 +45,8 @@ class CreateProfilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('profile_other_accts');
-		Schema::drop('profile_interests');
-		Schema::drop('profiles');
+		Schema::drop('for_approval_profile_interest');
+		Schema::drop('for_approval_profile');
 	}
 
 }

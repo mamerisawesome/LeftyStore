@@ -37,57 +37,46 @@
 				</ul>
 			</div>
 		</div>
-
+	</div>
+		@if(!Session::has('username'))
 		<div class="row">
-			<div class="col l6 m6 s12">
-				<div class="card">
-					<div class="card-content">
-						<h4>Create user </h4>
-						<p>Click me</p>
-					</div>
-					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/user/signup">Sign Up</a>
-					</div>
+<!--			@if(count($errors)>0)-->
+<!--			<div class='card-panel hoverable tooltipped' data-position="bottom" data-delay="50" data-tooltip="Username and Password does not match.">-->
+<!--			@else-->
+			<div class="col s6">
+				<div style="height:230px;" class='card-panel hoverable'>
+<!--			@endif-->
+					<form class="center" method="get" action="/user/signup">
+						<h4>Create a new account to start</h4>
+						<button class="btn waves-effect waves-light" type="submit" name="action">
+							Sign up
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="col s6">
+				<div style="height:230px;" class='card-panel hoverable'>
+					{{ Form::open(['route'=>'login']) }}
+						<div class="container">
+							<div class="input-field">
+							{{ Form::text('username',null,['placeholder'=>'Username','class'=>'validate'])}}
+							<label for="uname">Username/Email</label>
+							</div>
+							<div class="input-field">
+							{{ Form::text('pasword',null,['placeholder'=>'Password','class'=>'validate'])}}
+							<label for="pword">Password</label>
+							</div>
+							<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+								<i class="material-icons">send</i>
+							</button>
+						</div>
+
+					{{ Form::close()}}
 				</div>
 			</div>
 
-			<div class="col l6 m6 s12">
-				<div class="card">
-					<div class="card-content">
-						<h4>Post item</h4>
-						<p>Click me</p>
-					</div>
-					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/item/create">Post</a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col l6 m6 s12">
-				<div class="card">
-					<div class="card-content">
-						<h4>View all users</h4>
-						<p>Click me</p>
-					</div>
-					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/user">View</a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col l6 m6 s12">
-				<div class="card">
-					<div class="card-content">
-						<h4>View all items </h4>
-						<p>Click me</p>
-					</div>
-					<div class="card-action">
-						<a class="btn waves-effect white-text waves-light green" href="/item">View</a>
-					</div>
-				</div>
-			</div>
 		</div>
-		
+		@endif
 	<script>
 		$(document).ready(function(){
 		  $('.parallax').parallax();

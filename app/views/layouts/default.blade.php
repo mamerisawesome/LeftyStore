@@ -8,7 +8,7 @@
 	<body>
 
 		<!-- header / navigation bar -->
-		<header class="navbar-fixed">
+		<header class="navbar">
 		    @include('includes.header')
 		</header>
 

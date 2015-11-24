@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersAccountTable extends Migration {
+class ForApprovalTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,18 +12,17 @@ class CreateUsersAccountTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table)
+		Schema::create('for_approval', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('bank_acct_no', 20)->unique();
 			$table->string('username', 60)->unique();
 			$table->string('password', 200);
 			$table->string('first_name', 30);
-			$table->string('middle_name', 30)->nullable();
+			$table->string('middle_name', 30);
 			$table->string('last_name', 30);
 			$table->string('address', 60);
-			$table->string('approved_by', 60);
-			$table->date('approval_date');
+			$table->string('approved_by', 60)->nullable();
 		});
 	}
 
@@ -34,7 +33,7 @@ class CreateUsersAccountTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('for_approval');
 	}
 
 }

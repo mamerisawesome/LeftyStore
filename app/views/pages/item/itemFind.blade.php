@@ -6,13 +6,23 @@
 @stop
 
 @section('content')
-    <div class="container">
+
+	<?php
+		if(Session::has('isLogged')){
+			/* DO NOTHING */
+		} else {
+			echo Redirect::to('/user/login');
+		}
+	?>
+    
+	<div class="container">
         <div class="col-md-12" id="reg-form-title">
-			<h2>Item result</h2>
-			<a type="submit" href="/item" class="btn waves-effect waves-light">
-				<i class="material-icons">list</i>
-			</a>
-			<span style="font-weight:bold; font-size:1em">Back to item list</span>
+			<h2>
+				<a type="submit" href="/item" class="btn-floating btn-flat waves-effect waves-ripple waves-light">
+					<i class="black-text material-icons size3">list</i>
+				</a>
+				Item result
+			</h2>
         </div>
 
         <div class="row" id="reg-form-body">
@@ -27,19 +37,23 @@
 						<h5><span style="font-weight:bold">Price: </span>PHP {{ $item->price }}</h5>
 						<p><span style="font-weight:bold">Posted by: </span><a href="/item/{{ $item->posted_by }}">{{ $item->posted_by }}</a></p>
 						<p><span style="font-weight:bold">Category: </span>{{ $item->category }}</p>
+						<p><span style="font-weight:bold">Views: </span>{{ $item->views }}</p>
 					</div>
 					<div class="card-action">
 						<form method="post" action="#">
+						@if(Session::get('username') != $item->posted_by)
 							<button formmethod="post" 
 									formaction="/item/buy/{{ $item->item_name }}" 
 									class="btn-floating waves-effect waves-light blue" type="submit">
 								<i class="material-icons">shopping_cart</i>
 							</button>
+						@else
 							<button formmethod="post" 
 									formaction="/item/delete/{{ $item->item_name }}" 
 									class="btn-floating waves-effect waves-light red" type="submit">
 								<i class="material-icons">delete</i>
 							</button>
+						@endif
 						</form>
 					</div>
 				</div>
